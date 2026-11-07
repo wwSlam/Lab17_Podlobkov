@@ -1,9 +1,31 @@
-﻿int[] scores = { 60, 80, 40, 80, 90 };
+﻿int[] scores = new int[7];
 
-System.Console.WriteLine(SumArray(scores));
-Console.WriteLine(CountAtLeast(scores, 50));
-Console.WriteLine(FindMin(scores));
-Console.WriteLine(FindMax(scores));
+for (int i = 0; i < scores.Length; i++)
+{
+    Console.Write($"Результат {i + 1}: ");
+    scores[i] = Convert.ToInt32(Console.ReadLine());
+}
+
+Console.WriteLine(">>> Анализ результатов <<<");
+Console.WriteLine();
+Console.WriteLine($"Сумма: {SumArray(scores)}");
+Console.WriteLine($"Минимум: {FindMin(scores)}");
+Console.WriteLine($"Максимум: {FindMax(scores)}");
+Console.WriteLine($"Результатов 50 и больше: {CountAtLeast(scores, 50)}");
+
+
+Console.Write("Какой результат найти: ");
+int target = Convert.ToInt32(Console.ReadLine());
+
+int index = FindIndex(scores, target);
+if (index == -1)
+{
+    Console.WriteLine("Результат не найден");
+}
+else
+{
+    Console.WriteLine($"Первый индекс: {index}");
+}
 
 int SumArray(int[] numbers)
 {
@@ -54,4 +76,16 @@ int FindMin(int[] numbers)
         }
     }
     return min;
+}
+
+int FindIndex(int[] numbers, int target)
+{
+    for (int i = 0; i < numbers.Length; i++)
+    {
+        if (numbers[i] == target)
+        {
+            return i;
+        }
+    }
+    return -1;
 }
