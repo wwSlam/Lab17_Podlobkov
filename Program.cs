@@ -12,6 +12,7 @@ Console.WriteLine($"Сумма: {SumArray(scores)}");
 Console.WriteLine($"Минимум: {FindMin(scores)}");
 Console.WriteLine($"Максимум: {FindMax(scores)}");
 Console.WriteLine($"Результатов 50 и больше: {CountAtLeast(scores, 50)}");
+System.Console.WriteLine($"Среднее арифметическое: {CalculateAverage(scores)}");
 
 
 Console.Write("Какой результат найти: ");
@@ -89,3 +90,15 @@ int FindIndex(int[] numbers, int target)
     }
     return -1;
 }
+
+System.Console.WriteLine();
+System.Console.WriteLine("Задание 1");
+
+double CalculateAverage(int[] numbers)
+{
+    double sredn = (double)SumArray(numbers) / numbers.Length;
+    return sredn;
+}
+
+int[] values = { 1, 2 };
+Console.WriteLine(CalculateAverage(values));
